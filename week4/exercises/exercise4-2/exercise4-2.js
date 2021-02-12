@@ -10,11 +10,11 @@ function draw () {
     background(0);
     fill('teal');
     rect(100, rectY, width, 50);
+    rectY += 2;
 }
 
 function mousePressed () {
     if(mouseX >= 100 && mouseX <= 150 && mouseY >= 100 && mouseY <= 150) {
         width++;
-        console.log('hit');
     }
 }
