@@ -1,6 +1,7 @@
 /* eslint-disable indent */
-let width = 50;
-var rectY = 100
+let rectWidth = 50;
+let rectX = 100
+let clickCount = 0;
 
 function setup () {
     createCanvas(500, 500);
@@ -9,12 +10,19 @@ function setup () {
 function draw () {
     background(0);
     fill('teal');
-    rect(100, rectY, width, 50);
-    rectY += 2;
+    textSize(18);
+    text('Catch me if you can!', 25, 30);
+    rect(rectX, 100, rectWidth, 50);
+    rectX += 3;
+    if (rectX > width) {
+        noLoop();
+        text('Your score was ' + clickCount, 300, 450);
+    }
 }
 
 function mousePressed () {
-    if(mouseX >= 100 && mouseX <= 150 && mouseY >= 100 && mouseY <= 150) {
-        width++;
+    if (mouseX >= rectX && mouseX <= rectX + rectWidth && mouseY >= 100 && mouseY <= 150) {
+        rectWidth++;
+        clickCount++;
     }
 }
