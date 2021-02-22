@@ -85,14 +85,13 @@ function setup () {
 // }
 
 function draw () {
-    // player gets a different message when they win.
-    let message = ['Could you BE any smarter?', 'That deserves a trifle.', 'That was perfection!', 'Here\'s a meatball sub.',
-    'Science boy is impressed.'];
-    let msgIdx = floor(random(message.length));
     background(bgImage);
     fill('white');
+    // player gets a different message when they win.
+    let message = ['Could you BE any smarter?', 'That deserves a trifle.', 'That was perfection!', 'Here\'s a meatball sub.', 'Science boy is impressed.'];
+    let msgIdx = floor(random(message.length));
+    textFont('felt-tip-roman'); // Help-I don't understand why my font only doesn't load until the first non match disappears
     textSize(80);
-    textFont('felt-tip-roman');
     text('Match', 900, 180);
     text('Game', 900, 260);
     if (gameState.numMatched === gameState.totalPairs) {
@@ -116,8 +115,8 @@ function draw () {
     gameState.waiting = false;
     fill(255);
     textSize(36);
-    text('attempts ' + gameState.attempts, 925, 730);
-    text('matches ' + gameState.numMatched, 925, 780);
+    text('attempts ' + gameState.attempts, 925, 700);
+    text('matches ' + gameState.numMatched, 925, 750);
 }
 // determines that only 2 cards can be flipped at a time when the mouse is pressed by pushing the flipped cards into an array.
 
