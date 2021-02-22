@@ -55,9 +55,40 @@ function setup () {
         startingY += 260;
         startingX = 20;
     }
+    // I couldn't figure out how to get the button to resketch the game. I watched a video on coding train, but was unsuccessful. I had only the below code in setup
+    // resetGame();
+    // let button = createButton('Play again');
+    // button.mousePressed(resetGame);
+    // button.position(970, 500);
 }
+// I moved the other setup functionality to the new function I created called reset game. Do I need to reload the preload too?
+// function resetGame() {
+//     let selectedFaces = [];
+//     for (let l = 0; l < 6; l++) {
+//         const randomIdx = floor(random(cardFaceArray.length));
+//         const face = cardFaceArray[randomIdx];
+//         selectedFaces.push(face);
+//         selectedFaces.push(face);
+//         cardFaceArray.splice(randomIdx, 1);
+//     }
+
+//     selectedFaces = shuffleArray(selectedFaces);
+//     for (let k = 0; k < 3; k++) {
+//         for (let i = 0; i < 4; i++) {
+//             const faceImage = selectedFaces.pop();
+//             myCards.push(new Card(startingX, startingY, faceImage));
+//             startingX += 200;
+//         }
+//         startingY += 260;
+//         startingX = 20;
+//     }
+// }
 
 function draw () {
+    // player gets a different message when they win.
+    let message = ['Could you BE any smarter?', 'That deserves a trifle.', 'That was perfection!', 'Here\'s a meatball sub.',
+    'Science boy is impressed.'];
+    let msgIdx = floor(random(message.length));
     background(bgImage);
     fill('white');
     textSize(80);
@@ -67,9 +98,10 @@ function draw () {
     if (gameState.numMatched === gameState.totalPairs) {
         fill('#524fa2');
         textSize(66);
-        text('You Win', 900, 400);
+        text('You Win!', 900, 400);
         textSize(30);
-        text('Go get a Joey special!', 865, 450);
+        text(message[msgIdx], 865, 450);
+        text('Hit refresh to reset', 870, 600); // I couldn't get my play again button to work :(
         noLoop();
     }
     // redraws if not a card match ! in front means "not so "if myCards.isMatch is false"
