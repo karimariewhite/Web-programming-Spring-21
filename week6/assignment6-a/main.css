@@ -1,0 +1,111 @@
+@import url("https://use.typekit.net/ykt7lip.css");
+
+html {
+    background-color: #0a2240;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+    font-family: omnes-pro, sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: omnes-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #e7a4b2;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+  color: #3d8dae;
+}
+
+p, li {
+    font-family: omnes-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    color: #0a2240;
+    margin-bottom: 25px;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 2px dotted #9ddae6;
+    color: #9ddae6;
+}
+
+a:hover {
+    color: #b8dfca;
+    border-bottom: 2px solid #b8dfca;
+}
+
+a:visited {
+    color: #b8dfca;
+    border-bottom: 2px dotted #9ddae6;
+}
+
+img {
+    border-radius: 10px;
+    margin: 5px;
+}
+
+/*+++++++++++++++++++++   FOOTER STYLE   ++++++++++++++++++++++*/
+
+footer {
+    color: #fff;
+    text-align: right;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    height: 2.5rem;  
+    padding: 30px 0px;          
+}
+
+/*+++++++++++++++++++++   HEADER STYLE   ++++++++++++++++++++++*/
+
+header h1 {
+    font-size: 4em;
+    color: #b8dfca;
+    padding: 00px 0px 0px 00px;
+    text-align: center;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+}
+
+/*+++++++++++++++++++++   SECTION STYLE   ++++++++++++++++++++++*/
+
+.info {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.ltblue {
+    background-color: #9ddae6;
+}
+
+.ltgreen {
+    background-color: #b8dfca;
+}
+
+.ltpink {
+    background-color: #fdf2f4;
+}
