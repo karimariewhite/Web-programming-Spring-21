@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <title>K White Exercise 7.1</title>
+</head>
+<body>
+    <header>
+        <h1>Llama or Alpaca?</h1>
+      </header>
+      <div id="llamasvalpacas" v-cloak>
+        <section class="info ltblue">
+          <nav>
+            <ul>
+              <li v-bind:class="{active: currentPage==='comparison'}"><a href="#">Comparison</a></li>
+              <li v-bind:class="{active: currentPage==='alpacas'}"><a href="#">Alpacas</a></li>
+              <li v-bind:class="{active: currentPage==='llamas'}"><a href="#">Llamas</a></li>
+            </ul>
+          </nav>
+          <p v-bind:style="textStyle">{{differences1}}</p>
+          <p v-bind:style="textStyle">{{differences2}}</p>
+          <p v-bind:style="textStyle">{{differences3}}</p>
+          <a v-bind:href="llamaWiki">More info about llamas.</a>
+          <a v-bind:href="alpacaWiki">More info about Alpacas.</a>
+        </section>
+      </div>
+      <script src="script.js"></script>
+</body>
+</html>
