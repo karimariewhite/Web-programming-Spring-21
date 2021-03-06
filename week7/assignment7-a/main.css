@@ -107,6 +107,8 @@ header img {
 
 .list-head{
     border: 0px;
+    background-color: #b8dfca;
+    border-radius: 8px;
 }
 
 .list-container > div {
@@ -122,11 +124,6 @@ padding: 0px 10px;
     flex-basis: 15%;
     text-align: center;
     padding: 0px 5px;
-}
-
-.list-head {
-    background-color: #b8dfca;
-    border-radius: 10px;
 }
 
 .fiction {
