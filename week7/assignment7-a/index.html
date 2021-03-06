@@ -12,7 +12,7 @@
     <h1>My Library</h1>
   </header>
     <section id="collection">
-      <!-- This div is my header row -->
+      <!-- This div is my column headings -->
       <div class="list-head">
         <div class=colHeadTitle><h4>Book Title</h4></div>
         <div class=colHead><h4>Author</h4></div>
@@ -20,6 +20,7 @@
         <div class=colHead><h4>Year Pubbed</h4></div>
       </div>
       <!-- This div is collections list created using a view loop -->
+      <!-- I used flexbox for the div location -->
       <!-- Added CSS style for non-fiction books -->
       <div class="list-container" v-for="books in library">
         <div v-bind:class="{fiction: !books.fiction}" class="title">{{ books.title }}</div>
