@@ -2,42 +2,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K White | Assignment 6</title>
+    <title>K White | Assignment 7</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://use.typekit.net/llb6evl.css">
 </head>
 <body>
-    <header>
-        <img src="images/llamaheader.png" alt="llama wearing sunglasses" style=float:left>
-        <h1>All About Llamas</h1>
-      </header>
-      <div id="llamafacts">
-        <section class="info ltblue">
-          <h2>Physical Characteristics</h2>
-          <ul><li>{{family}}</li>
-          <li>{{grow}}</li>
-          <li>{{weight}}</li>
-          <li>{{environment}}</li></ul>
-        </section>
-        <section class="info ltgreen">
-          <h2>Personality Traits</h2>
-          <ul><li>{{intelligent}}</li>
-          <li>{{guard}}</li>
-          <li>{{spit}}</li>
-          <li>{{social}}</li></ul>
-        </section>
-        <section class="info ltpink">
-          <h2>Fun Facts</h2>
-          <ul><li>{{group}}</li>
-          <li>{{yarn}}</li></ul>
-          <p v-if="alpaca===true">Do you know the difference between an alpaca and a llama?</p>
-          <p v-else>{{difference}}</p>
-        </section>
+  <header>
+    <h1>My Library</h1>
+  </header>
+    <div id="collection">
+      <div class="list-head">
+        <div class=colHeadTitle><h4>Book Title</h4></div>
+        <div class=colHead><h4>Author</h4></div>
+        <div class=colHead><h4>Genre</h4></div>
+        <div class=colHead><h4>Year Pubbed</h4></div>
       </div>
-      <script src="script.js"></script>
+      <div class="list-container" v-for="books in library">
+        <div v-bind:class="{fiction: !books.fiction}" class="title">{{ books.title }}</div>
+        <div v-bind:class="{fiction: !books.fiction}" class="author">{{ books.author }}</div>
+        <div v-bind:class="{fiction: !books.fiction}" class="genre">{{ books.genre }}</div>
+        <div v-bind:class="{fiction: !books.fiction}" class="yearPublished">{{ books.yearPublished }}</div>
+      </div> 
+    </div>
     <footer>
-        <p><a href="https://www.freepik.com/vectors/baby">Baby llama vector created by pch.vector - www.freepik.com</a></p>
+      <p class="fiction">Italicized text is non-fiction</p>
     </footer>
+  <script src="collection.js"></script>
 </body>
 </html>

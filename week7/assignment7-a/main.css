@@ -1,7 +1,7 @@
 @import url("https://use.typekit.net/ykt7lip.css");
 
 html {
-    background-color: #0a2240;
+    background-color:#9ddae6;
     margin-left: 20px;
     padding-top: 20px;
 }
@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5 {
     font-family: omnes-pro, sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #e7a4b2;
+    color: #0a2240;
     margin-bottom: 10px;
     line-height: 1.25;
 }
@@ -80,7 +80,7 @@ footer {
 
 header h1 {
     font-size: 4em;
-    color: #b8dfca;
+    color: #0a2240;
     padding: 00px 0px 0px 00px;
     text-align: center;
 }
@@ -91,21 +91,44 @@ header img {
 }
 
 /*+++++++++++++++++++++   SECTION STYLE   ++++++++++++++++++++++*/
-
-.info {
+#collection {
+    background: white;
     padding: 10px;
     margin-top: 20px;
     border-radius: 10px;
 }
 
-.ltblue {
-    background-color: #9ddae6;
+.list-container, .list-head {
+    display:flex;
+    justify-content: space-around;
+    border-bottom:2px dotted #3d8dae;
+    align-items: center;
 }
 
-.ltgreen {
+.list-head{
+    border: 0px;
+}
+
+.list-container > div {
+    margin: 20px 0px;
+}
+
+.title, .colHeadTitle {
+flex-basis: 65%;
+padding: 0px 10px;
+}
+
+.author, .yearPublished, .genre, .colHead {
+    flex-basis: 15%;
+    text-align: center;
+    padding: 0px 5px;
+}
+
+.list-head {
     background-color: #b8dfca;
+    border-radius: 10px;
 }
 
-.ltpink {
-    background-color: #fdf2f4;
+.fiction {
+    font-style: italic;
 }
