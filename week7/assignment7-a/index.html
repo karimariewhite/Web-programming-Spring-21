@@ -11,20 +11,23 @@
   <header>
     <h1>My Library</h1>
   </header>
-    <div id="collection">
+    <section id="collection">
+      <!-- This div is my header row -->
       <div class="list-head">
         <div class=colHeadTitle><h4>Book Title</h4></div>
         <div class=colHead><h4>Author</h4></div>
         <div class=colHead><h4>Genre</h4></div>
         <div class=colHead><h4>Year Pubbed</h4></div>
       </div>
+      <!-- This div is collections list created using a view loop -->
+      <!-- Added CSS style for non-fiction books -->
       <div class="list-container" v-for="books in library">
         <div v-bind:class="{fiction: !books.fiction}" class="title">{{ books.title }}</div>
         <div v-bind:class="{fiction: !books.fiction}" class="author">{{ books.author }}</div>
         <div v-bind:class="{fiction: !books.fiction}" class="genre">{{ books.genre }}</div>
         <div v-bind:class="{fiction: !books.fiction}" class="yearPublished">{{ books.yearPublished }}</div>
       </div> 
-    </div>
+    </section>
     <footer>
       <p class="fiction">Italicized text is non-fiction</p>
     </footer>
