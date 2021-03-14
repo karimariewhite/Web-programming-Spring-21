@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.typekit.net/llb6evl.css">
+    <title>K White Exercise 8.1</title>
+</head>
+<body>
+    <div id="form" v-cloak>
+        <fieldset>
+            <legend>Alpaca  Form</legend>
+            <div class="formfield">
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text" v-model="firstName" />
+            </div>
+            <div class="formfield">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" v-model="lastName"/>
+            </div>
+            <div class="formfield">
+                <label for="street">Street Address</label>
+                <input id="street" type="text" v-model="street"/>
+            </div>
+            <div class="formfield">
+                <label for="state">State/Province</label>
+                <input id="state" type="text" v-model="state" />
+            </div>
+            <div class="formfield">
+                <label for="country">Country</label>
+                <input id="country" type="text" />
+            </div>
+            <div class="formfield">
+                <p>Favorite alpaca colors:</p>
+                <ul>
+                    <li><label><input type="checkbox" value="white" v-model="alpacaColors">white</label></li>
+                    <li><label><input type="checkbox" value="fawn" v-model="alpacaColors">fawn</label></li>
+                    <li><label><input type="checkbox" value="brown" v-model="alpacaColors">brown</label></li>
+                    <li><label><input type="checkbox" value="gray" v-model="alpacaColors">gray</label></li>
+                    <li><label><input type="checkbox" value="black" v-model="alpacaColors">black</label></li>
+                    <li><label><input type="checkbox" value="other" v-model="alpacaColors">other</label></li>
+                </ul>
+            </div>
+            <div class="formfield alpaca-status">
+                <label for="alpaca-status">Current Alpaca Status</label>
+                <textarea id="alpaca-status" v-model="alpacaStatus"></textarea>
+            </div>
+        </fieldset>
+        <div id="output">
+            <h3>Form Output</h3>
+            <p>First Name: {{ firstName }}</p>
+            <p>Last Name: {{ lastName }}</p>
+            <p>Street: {{ street }}</p>          
+            <p>State/Province: {{ state }}</p>
+            <p>Country: {{  }}</p>
+            <p>Alpaca Color: {{ alpacaColors  }}</p>
+            <p>Alpaca Status: {{alpacaStatus}}</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="exercise8-1.js"></script>
+</body>
+</html>

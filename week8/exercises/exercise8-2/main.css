@@ -1,0 +1,63 @@
+@import url("https://use.typekit.net/ykt7lip.css");
+
+html {
+    background-color: #0a2240;
+    margin-left: 20px;
+}
+
+body {
+    font-family: omnes-pro, sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: omnes-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #e7a4b2;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-family: omnes-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 2px dotted #9ddae6;
+    color: #9ddae6;
+}
+
+a:hover {
+    color: #b8dfca;
+    border-bottom: 2px solid #b8dfca;
+}
+
+a:visited {
+    color: #b8dfca;
+    border-bottom: 2px dotted #9ddae6;
+}
+
+footer {
+    color: #fff;
+    text-align: right;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    height: 2.5rem;  
+    padding: 30px 0px;          
+}
