@@ -104,7 +104,7 @@ header img {
 }
 
 .title, .colHeadTitle {
-flex-basis: 60%;
+flex-basis: 20%;
 padding: 0px 10px;
 margin-top: 10px;
 }
@@ -116,15 +116,71 @@ margin-top: 10px;
     margin-top: 10px;
 }
 
+.delete {
+    text-align: right;
+    flex-basis: 10%;
+    margin-top: 10px;
+}
+
 .fiction {
     font-style: italic;
 }
 
 /*+++++++++++++++++++++   FORM STYLE   ++++++++++++++++++++++*/
 
-
 .form {
+    border-radius: 6px;
+    border: 1px solid purple;
+    padding: 5px;
+}
 
-border-radius: 6px;
-border: 1px solid purple;
+fieldset {
+    border: 0;
+}
+
+.form-input {
+    margin: 20px 0;
+}
+
+input::placeholder {
+    margin-right: 10px;
+    font-family: omnes-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2em;
+    color: #0a2240;
+}
+
+div input, div select {
+    padding: 5px 0;
+    border: 0;
+    border-bottom: 1px dotted purple;
+    width: 100%;
+}
+
+input[type=checkbox] {
+    width: auto;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+/*+++++++++++++++++++++   BUTTON STYLE   ++++++++++++++++++++++*/
+
+button {
+    box-sizing: border-box;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #3d8dae;
+    color: white;
+    font-family: omnes-pro, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25em;
+    border: 0;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color:#b8dfca;
+    color:  #0a2240;
 }

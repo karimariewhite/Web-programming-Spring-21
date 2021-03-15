@@ -16,27 +16,70 @@
       <section class="col col-2-3">
       <!-- This div is my column headings -->
       <div class="list-head">
-        <div class=colHeadTitle><h4>Book Title</h4></div>
-        <div class=colHead><h4>Author</h4></div>
-        <div class=colHead><h4>Genre</h4></div>
-        <div class=colHead><h4>Year Pubbed</h4></div>
+        <div class="colHeadTitle"><h4>Book Title</h4></div>
+        <div class="colHead"><h4>Author</h4></div>
+        <div class="colHead"><h4>Genre</h4></div>
+        <div class="colHead"><h4>Year Pubbed</h4></div>
+        <div class="delete"><h4>Delete?</h4></div>
       </div>
       <!-- This div is collections list created using a view loop -->
       <!-- I used flexbox for the div location -->
-      <!-- Added CSS style for non-fiction books -->
       <div class="list-container" v-for="books in library">
         <div v-bind:class="{fiction: !books.fiction}" class="title">{{ books.title }}</div>
         <div v-bind:class="{fiction: !books.fiction}" class="author">{{ books.author }}</div>
         <div v-bind:class="{fiction: !books.fiction}" class="genre">{{ books.genre }}</div>
         <div v-bind:class="{fiction: !books.fiction}" class="yearPublished">{{ books.yearPublished }}</div>
+        <div class="delete"><button type="button" v-on:click="deleteItem(books)">Delete</button></div>
       </div> 
+      <!-- Added CSS style for non-fiction books -->
       <div>
         <p><em>Italicized text is non-fiction</em></p>
       </div>
       </section>
       <section class="col col-1-3">
         <div class="form">
-          <h2>Add New Items</h2>
+          <form v-on:submit.prevent="addItem">
+            <fieldset>
+              <h2>Add New Items</h2>
+              <div class="form-input">
+                <input type="text" v-model="idInput" placeholder="Item ID">
+              </div>
+              <div class="form-input">
+                <input type="text"v-model="titleInput" placeholder="Item Title">
+              </div>
+              <div class="form-input">
+                <input type="text" v-model="authorInput" placeholder="Item Author">
+              </div>
+              <div class="form-input">
+                <select v-model="genreInput">
+                  <option value="" disabled selected>Select A Genre</option>
+                  <option value="Urban Fantasy">Urban Fantasy</option>
+                  <option value="Magical Realism">Magical Realism</option>
+                  <option value="Writing Reference">Writing Reference</option>
+                  <option value="Contemporary Romance">Contemporary Romance</option>
+                  <option value="Work & Culture">Work & Culture</option>
+                  <option value="Suspence & Thriller">Suspence & Thriller</option>
+                  <option value="Action/Adventure">Action/Adventure</option>
+                  <option value="Detective & Mystery">Detective & Mystery</option>
+                  <option value="Horror">Horro</option>
+                  <option value="Biography & Memoir">Biography & Memoir</option>
+                  <option value="Classic">Classic</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Historical Fiction">Historical Fiction</option>
+                  <option value="Literary Fiction">Literary Fiction</option>
+                  <option value="Science Fiction">Science Fiction</option>
+                  <option value="Self-Help">Self-Help</option>
+                </select>
+              </div>
+              <div class="form-input">
+                <input type="text" maxlength="4" v-model="yearInput" placeholder="Year Published">
+              </div>
+              <div>
+                <label>Fiction<input type="checkbox" v-model="fictionInput"></label>
+              </div>
+              <button type="submit">Add to Library</button>
+            </fieldset>
+          </form>
         </div>
       </section>
     </div>
