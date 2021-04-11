@@ -1,3 +1,21 @@
+Vue.component('book-component', {
+  template: `<div class="list-container">
+              <div class="col-4-4">
+                {{title}}
+              </div>
+              <div class="col-4-4">
+                {{author}}
+              </div>
+              <div class="col-4-4">
+                {{genre}}
+              </div>
+              <div class="col-4-4">
+                {{yearPublished}}
+              </div>
+            </div>`,
+  props: ['title', 'author', 'genre', 'yearPublished', 'fiction']
+})
+
 var myVue = new Vue({
   el: '#collection',
   // created an array of objects

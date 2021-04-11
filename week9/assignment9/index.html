@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K White | Assignment 8</title>
+    <title>K White | Assignment 9</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://use.typekit.net/llb6evl.css">
@@ -16,25 +16,20 @@
       <section class="col col-2-3">
       <!-- This div is my column headings -->
       <div class="list-head">
-        <div class="colHeadTitle"><h4>Book Title</h4></div>
-        <div class="colHead"><h4>Author</h4></div>
-        <div class="colHead"><h4>Genre</h4></div>
-        <div class="colHead"><h4>Year Pubbed</h4></div>
-        <div class="delete"><h4>Delete?</h4></div>
+        <div class="col-4-4"><h4>Book Title</h4></div>
+        <div class="col-4-4"><h4>Author</h4></div>
+        <div class="col-4-4"><h4>Genre</h4></div>
+        <div class="col-4-4"><h4>Year Pubbed</h4></div>
       </div>
       <!-- This div is collections list created using a view loop -->
       <!-- I used flexbox for the div location -->
-      <div class="list-container" v-for="books in library">
-        <div v-bind:class="{fiction: !books.fiction}" class="title">{{ books.title }}</div>
-        <div v-bind:class="{fiction: !books.fiction}" class="author">{{ books.author }}</div>
-        <div v-bind:class="{fiction: !books.fiction}" class="genre">{{ books.genre }}</div>
-        <div v-bind:class="{fiction: !books.fiction}" class="yearPublished">{{ books.yearPublished }}</div>
-        <div class="delete"><button type="button" v-on:click="deleteItem(books)">Delete</button></div>
-      </div> 
+        <div v-for="books in library">
+          <book-component v-bind:title="books.title" v-bind:author="books.author" v-bind:genre="books.genre" v-bind:year-published="books.yearPublished" v-bind:class="{fiction: !books.fiction}"></book-component>
+        </div>
+        <div>
+          <em>Italicized text is non-fiction</em>
+        </div>
       <!-- Added CSS style for non-fiction books -->
-      <div>
-        <p><em>Italicized text is non-fiction</em></p>
-      </div>
       </section>
       <section class="col col-1-3">
         <div class="form" v-on:submit="checkForm">
