@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <link rel="stylesheet" href="exercise10-2.css">
+    <title>K White Exercise 10.2</title>
+</head>
+<body>
+    <h1>Top Streaming Tracks</h1>
+    <div id="musicApp" class="track-wrapper">
+        <streaming-track v-bind:track="song" v-for="song in tracks"></streaming-track>
+    </div>
+    <script src="exercise10-2.js"></script>
+</body>
+</html>
