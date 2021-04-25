@@ -5,7 +5,8 @@ const vm = new Vue({
     data: {
         artist: '',
         title: '',
-        lyrics: ''
+        lyrics: '',
+        showLyrics: false
     },
     computed: {
         lyricQuery: function () {

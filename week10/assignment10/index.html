@@ -13,21 +13,25 @@
         <h1>Get the lyrics to your favorite tracks</h1>
     </header>
     <div id="songApp">
-        <section class="col col-2-3">
+        <section class="form">
             <form v-on:submit.prevent="getLyrics">
                 <div>
                     <label>Artist name</label>
-                    <input v-model="artist">
+                    <input type="text" placeholder="Enter an artist or band name" v-model="artist">
                 </div>
                 <div>
                     <label>Song name</label>
-                    <input v-model="title">
+                    <input type="text" placeholder="Enter a song name" v-model="title">
                 </div>
-                <button type="submit">Get Lyrics</button>
+                <button type="submit" v-on:click="showLyrics = true">Get Lyrics</button>
+                <button type="reset" v-on:click="showLyrics = false">Reset Form</button>
             </form>
         </section>
-        <section class="col col-2-3">
-            <h2>The lyrics to {{title}} by {{artist}} are:</h2>
+        <section v-if="!showLyrics">
+            <h2>Enter a song name and an artist to see the song lyrics.</h2>
+        </section>
+        <section class="results" v-if="showLyrics">
+            <h2>The lyrics to <em>{{title}}</em> by <em>{{artist}}</em> are:</h2>
             <p>{{lyrics}}</p>
         </section>
     </div>
