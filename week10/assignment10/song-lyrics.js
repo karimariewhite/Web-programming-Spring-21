@@ -6,7 +6,8 @@ const vm = new Vue({
         artist: '',
         title: '',
         lyrics: '',
-        showLyrics: false
+        showLyrics: false,
+        formValid: ''
     },
     computed: {
         lyricQuery: function () {
@@ -17,9 +18,8 @@ const vm = new Vue({
         getLyrics: function () {
             axios.get(vm.lyricQuery)
             .then(response => {
-                console.log('response', response);
                 vm.lyrics = response.data.lyrics;
-        });
+        })
       }
     }
 })

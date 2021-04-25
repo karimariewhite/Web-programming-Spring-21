@@ -17,18 +17,18 @@
             <form v-on:submit.prevent="getLyrics">
                 <div>
                     <label>Artist name</label>
-                    <input type="text" placeholder="Enter an artist or band name" v-model="artist">
+                    <input type="text" name="artist" required v-model="artist">
                 </div>
                 <div>
                     <label>Song name</label>
-                    <input type="text" placeholder="Enter a song name" v-model="title">
+                    <input type="text" name="song" required v-model="title">
                 </div>
                 <button type="submit" v-on:click="showLyrics = true">Get Lyrics</button>
                 <button type="reset" v-on:click="showLyrics = false">Reset Form</button>
             </form>
         </section>
         <section v-if="!showLyrics">
-            <h2>Enter a song name and an artist to see the song lyrics.</h2>
+            <h2>Enter both a song name and an artist to see the song lyrics.</h2>
         </section>
         <section class="results" v-if="showLyrics">
             <h2>The lyrics to <em>{{title}}</em> by <em>{{artist}}</em> are:</h2>
