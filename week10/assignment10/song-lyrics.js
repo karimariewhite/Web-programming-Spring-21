@@ -9,7 +9,7 @@ const vm = new Vue({
         showLyrics: false,
         formValid: ''
     },
-    computed: {
+    computed: { // computed property that takes form input and adds it to the base URL for the data search
         lyricQuery: function () {
             return baseURL + this.artist + '/' + this.title
         }

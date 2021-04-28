@@ -96,7 +96,7 @@ header h1 {
 }
 
 /*+++++++++++++++++++++   LYRIC STYLE   ++++++++++++++++++++++*/
-
+/*The data is formulated without line breaks, so this helps*/
 .results {
     white-space: pre;
 }
