@@ -1,11 +1,5 @@
 /* eslint-disable indent */
-let img;
-let moo1;
-let moo2;
-let moo3;
-let moo4;
-let moo5;
-let moo6;
+let img, moo1, moo2, moo3, moo4, moo5, moo6, reverb;
 
 function preload () {
     moo1 = loadSound('media/moo.wav');
@@ -21,6 +15,11 @@ function setup () {
     createCanvas(1000, 600);
     background(230);
     image(img, 18, 0);
+    reverb = new p5.Reverb();
+    reverb.process(moo1, 3, 2);
+    slider = createSlider(0, 100, 0, 1);
+    slider.position(150, 550);
+    slider.style('width', '100px');
 }
 
 function draw () {
@@ -31,6 +30,9 @@ function draw () {
     text('Let\'s make moosic!', 300, 150);
     textSize(20);
     text('Use your keyboard and the letters shown below to make moosic.', 330, 200);
+    textSize(15);
+    fill('red');
+    text('Try adding reverb', 138, 585);
 
     // S circle
     fill(255);
@@ -88,17 +90,17 @@ function draw () {
 }
 
 function keyPressed () {
-    if (key == 's') {
+    if (key === 's') {
         moo1.play();
-    } else if(key == 'd') {
+    } else if (key === 'd') {
         moo2.play();
-    } else if(key == 'f') {
+    } else if (key === 'f') {
         moo3.play();
-    } else if(key == 'j') {
+    } else if (key === 'j') {
         moo4.play();
-    } else if(key == 'k') {
+    } else if (key === 'k') {
         moo5.play();
-    } else if(key == 'l') {
+    } else if (key === 'l') {
         moo6.play();
     }
 }
