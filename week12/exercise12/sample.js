@@ -15,7 +15,8 @@ function setup () {
 function draw () {
     background('lime');
     textAlign(CENTER);
-    text('click square to play/pause the crickets', width / 2, 200);
+    textSize(20);
+    text('click square to play/pause the crickets', 20, 300);
 }
 
 function toggleSound () {
