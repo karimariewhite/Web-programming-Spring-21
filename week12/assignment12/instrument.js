@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-let img, moo1, moo2, moo3, moo4, moo5, moo6, reverb;
+let img, moo1, moo2, moo3, moo4, moo5, moo6;
 
 function preload () {
     moo1 = loadSound('media/moo.wav');
@@ -15,11 +15,6 @@ function setup () {
     createCanvas(1000, 600);
     background(230);
     image(img, 18, 0);
-    reverb = new p5.Reverb();
-    reverb.process(moo1, 3, 2);
-    slider = createSlider(0, 100, 0, 1);
-    slider.position(150, 550);
-    slider.style('width', '100px');
 }
 
 function draw () {
@@ -30,18 +25,27 @@ function draw () {
     text('Let\'s make moosic!', 300, 150);
     textSize(20);
     text('Use your keyboard and the letters shown below to make moosic.', 330, 200);
-    textSize(15);
-    fill('red');
-    text('Try adding reverb', 138, 585);
+
+    let wiggle = random(-1, 1); // trying to add a wiggle to circle
 
     // S circle
-    fill(255);
-    stroke(0);
-    ellipse(100, 450, 125);
-    fill('red')
-    noStroke();
-    textSize(100);
-    text('S', 65, 485);
+    if (moo1.isPlaying()) { // this seems clunkier than it could be
+        fill(0);
+        stroke(0);
+        ellipse(100 + wiggle, 450 + wiggle, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('S', 65, 485);
+    } else {
+        fill(255);
+        stroke(0);
+        ellipse(100, 450, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('S', 65, 485);
+    }
 
     // D circle
     fill(255);
@@ -89,6 +93,7 @@ function draw () {
     text('L', 875, 485);
 }
 
+// relates keys to the correct sound files.
 function keyPressed () {
     if (key === 's') {
         moo1.play();
