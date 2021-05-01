@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-let img, moo1, moo2, moo3, moo4, moo5, moo6;
+let img, moo1, moo2, moo3, moo4, moo5, moo6, amplitude;
 
 function preload () {
     moo1 = loadSound('media/moo.wav');
@@ -15,9 +15,12 @@ function setup () {
     createCanvas(1000, 600);
     background(230);
     image(img, 18, 0);
+    amplitude = new p5.Amplitude();
 }
 
 function draw () {
+    let level = amplitude.getLevel();
+    let size = map(level, .001, .1, 0, 2);
     textAlign(LEFT);
     textSize(75);
     noStroke();
@@ -26,14 +29,13 @@ function draw () {
     textSize(20);
     text('Use your keyboard and the letters shown below to make moosic.', 330, 200);
 
-    let wiggle = random(-1, 1); // trying to add a wiggle to circle
-
     // S circle
     if (moo1.isPlaying()) { // this seems clunkier than it could be
+        console.log(level);
         fill(0);
         stroke(0);
-        ellipse(100 + wiggle, 450 + wiggle, 125);
-        fill('red')
+        ellipse(100, 450, 125 * size);
+        fill('red');
         noStroke();
         textSize(100);
         text('S', 65, 485);
