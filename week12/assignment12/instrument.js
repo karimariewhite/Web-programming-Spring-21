@@ -13,14 +13,14 @@ function preload () {
 
 function setup () {
     createCanvas(1000, 600);
-    background(230);
-    image(img, 18, 0);
     amplitude = new p5.Amplitude();
 }
 
 function draw () {
-    let level = amplitude.getLevel();
-    let size = map(level, .001, .1, 0, 2);
+    background(230); // background here or the sketch changes are permanent
+    image(img, 18, 0);
+    const level = amplitude.getLevel(); // gets level from amp
+    const diameter = map(level, 0, 0.01, 0, 0.1); // maps it to circle size
     textAlign(LEFT);
     textSize(75);
     noStroke();
@@ -30,11 +30,13 @@ function draw () {
     text('Use your keyboard and the letters shown below to make moosic.', 330, 200);
 
     // S circle
-    if (moo1.isPlaying()) { // this seems clunkier than it could be
-        console.log(level);
+    if (moo1.isPlaying()) {
+        // circle animating on level input
         fill(0);
         stroke(0);
-        ellipse(100, 450, 125 * size);
+        ellipse(100, 450, 125);
+        ellipse(100, 450, 125 * (diameter * 1.5));
+        // letter S
         fill('red');
         noStroke();
         textSize(100);
@@ -42,6 +44,7 @@ function draw () {
     } else {
         fill(255);
         stroke(0);
+        strokeWeight(1);
         ellipse(100, 450, 125);
         fill('red')
         noStroke();
@@ -50,49 +53,119 @@ function draw () {
     }
 
     // D circle
-    fill(255);
-    stroke(0);
-    ellipse(260, 450, 125);
-    fill('red')
-    noStroke();
-    textSize(100);
-    text('D', 227, 485);
+    if (moo2.isPlaying()) {
+        // circle animating on level input
+        fill(0);
+        stroke(0);
+        ellipse(260, 450, 125);
+        ellipse(260, 450, 125 * diameter);
+        // letter D
+        fill('red');
+        noStroke();
+        textSize(100);
+        text('D', 227, 485);
+    } else {
+        fill(255);
+        stroke(0);
+        strokeWeight(1);
+        ellipse(260, 450, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('D', 227, 485);
+    }
 
     // F circle
-    fill(255);
-    stroke(0);
-    ellipse(420, 450, 125);
-    fill('red')
-    noStroke();
-    textSize(100);
-    text('F', 390, 485);
+    if (moo3.isPlaying()) {
+        // circle animating on level input
+        fill(0);
+        stroke(0);
+        ellipse(420, 450, 125);
+        ellipse(420, 450, 125 * (diameter * 1.5));
+        // letter F
+        fill('red');
+        noStroke();
+        textSize(100);
+        text('F', 390, 485);
+    } else {
+        fill(255);
+        stroke(0);
+        strokeWeight(1);
+        ellipse(420, 450, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('F', 390, 485);
+    }
 
     // J circle
-    fill(255);
-    stroke(0);
-    ellipse(580, 450, 125);
-    fill('red')
-    noStroke();
-    textSize(100);
-    text('J', 555, 485);
+    if (moo4.isPlaying()) {
+        // circle animating on level input
+        fill(0);
+        stroke(0);
+        ellipse(580, 450, 125);
+        ellipse(580, 450, 125 * diameter);
+        // letter J
+        fill('red');
+        noStroke();
+        textSize(100);
+        text('J', 555, 485);
+    } else {
+        fill(255);
+        stroke(0);
+        strokeWeight(1);
+        ellipse(580, 450, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('J', 555, 485);
+    }
 
     // K circle
-    fill(255);
-    stroke(0);
-    ellipse(740, 450, 125);
-    fill('red')
-    noStroke();
-    textSize(100);
-    text('K', 705, 485);
+    if (moo5.isPlaying()) {
+        // circle animating on level input
+        fill(0);
+        stroke(0);
+        ellipse(740, 450, 125);
+        ellipse(740, 450, 125 * diameter);
+        // letter K
+        fill('red');
+        noStroke();
+        textSize(100);
+        text('K', 705, 485);
+    } else {
+        fill(255);
+        stroke(0);
+        strokeWeight(1);
+        ellipse(740, 450, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('K', 705, 485);
+    }
 
     // L circle
-    fill(255);
-    stroke(0);
-    ellipse(900, 450, 125);
-    fill('red')
-    noStroke();
-    textSize(100);
-    text('L', 875, 485);
+    if (moo6.isPlaying()) {
+        // circle animating on level input
+        fill(0);
+        stroke(0);
+        ellipse(900, 450, 125);
+        ellipse(900, 450, 125 * diameter);
+        // letter K
+        fill('red');
+        noStroke();
+        textSize(100);
+        text('L', 875, 485);
+    } else {
+        fill(255);
+        stroke(0);
+        strokeWeight(1);
+        ellipse(900, 450, 125);
+        fill('red')
+        noStroke();
+        textSize(100);
+        text('L', 875, 485);
+    }
 }
 
 // relates keys to the correct sound files.
