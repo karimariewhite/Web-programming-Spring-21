@@ -1,0 +1,19 @@
+html {
+    background-color:#D1D3D4;
+
+}
+
+body {
+    width: 90%;
+    margin: auto;
+
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 15px;
+    min-width: 1005px;
+    min-height: 765px;
+}
