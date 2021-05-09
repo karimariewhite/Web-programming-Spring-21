@@ -1,62 +1,94 @@
 /* eslint-disable indent */
-startingX = 100;
-startingY = 500;
-let cnvSlider;
+
+let myButtons = [];
+const rectX = 50;
+let rectY = 50;
 let beat;
-let rectX = 700;
-let rectY = 350;
 
 function preload () {
-    beat = loadSound('media/looperman-l-4739663-0251836-dababy-type-drum-loop-with-808s.wav');
-    img = loadImage('images/frame.png')
-    fft = new p5.FFT();
-    peakDetect = new p5.PeakDetect();
+    mySoundArray = [
+        loadSound('media/beat.wav'),
+        loadSound('media/bass.wav')
+    ];
+    img = loadImage('images/frame.png');
 }
 
 function setup () {
+    let soundIndex = 0;
     var myCanvas = createCanvas(1000, 750);
     myCanvas.parent('canvasContainer');
 
-    // Frame image and a slider to change the brightness of the canvas
+    fft = new p5.FFT();
+    peakDetect = new p5.PeakDetect();
+
+    // Frame image
     fill(0);
     noStroke();
     rect(475, 75, 450, 600);
     image(img, 450, 50);
 
-    // Beat Button
-    beatBtn = createButton('Beat');
-    beatBtn.position(100, 200);
-    beatBtn.mousePressed(togglePlaying);
-
-    // Beat Color Slider
-    colorMode(HSB);
-    beatSlider = createSlider(0, 360, 60);
-    beatSlider.position(300, 200);
-    beatSlider.style('width', '100px');
+    // set up buttons and add array sounds
+    for (let i = 0; i < 2; i++) {
+        myButtons.push(new Button(rectX, rectY, mySoundArray[soundIndex]));
+        rectY += 60;
+        soundIndex += 1;
+    }
 }
 
 function draw () {
-    // Beat
-    let beatClr = beatSlider.value();
-    fill(beatClr, 255, 255, 1);
-    rect(355, 75, 25, 25);
-    fft.analyze(beat);
+// Shows buttons
+    for (let j = 0; j < myButtons.length; j++) {
+        myButtons[j].show();
+    }
+
+// Draws squares when Beat is playing
+/*     let beatX = 700;
+    let beatY = 350; */
+/*     fft.analyze();
     peakDetect.update(fft);
-        if (peakDetect.isDetected) {
-            fill(beatClr, 100, 100, 1);
-            rectX = random(500, 875);
-            rectY = random(100, 625);
+
+    if (peakDetect.isDetected) {
+        beatX = random(500, 875);
+        beatY = random(100, 625);
+    } else {
+        noFill();
+    }
+    Fill('red');
+    rect(beatX, beatY, 25, 25);
+} */
+}
+class Button {
+    constructor (x, y, sound) {
+        this.x = x;
+        this.y = y;
+        this.sound = sound;
+        this.pressed = false;
+    }
+
+    show () {
+        if (this.pressed) {
+            fill('gray');
+            rect(this.x, this.y, 100, 40);
         } else {
-            noFill();
+            fill('black');
+            rect(this.x, this.y, 100, 40);
         }
-        rect(rectX, rectY, 25, 25);
-        // fill(0, 0, cnvSlider.value());
+    }
+
+    play () {
+        if (this.pressed) {
+            this.sound.play();
+        } else {
+            this.sound.stop();
+        }
+    }
 }
 
-function togglePlaying() {
-    if (!beat.isPlaying()) {
-        beat.play();
-    } else {
-        beat.pause();
+function mousePressed () {
+    for (let k = 0; k < myButtons.length; k++) {
+        if (mouseX >= myButtons[k].x && mouseX <= myButtons[k].x + 100 && mouseY >= myButtons[k].y && mouseY <= myButtons[k].y + 40) {
+            myButtons[k].pressed = !myButtons[k].pressed
+            myButtons[k].play();
+        }
     }
 }
