@@ -44,21 +44,11 @@ function draw () {
     // Draws squares when Beat is playing
     fft.analyze();
     peakDetect.update(fft);
-    let beatX = 700;
-    let beatY = 350;
+
     if (beat.isPlaying()) {
-        if (peakDetect.isDetected) {
-            beatX = random(500, 875);
-            beatY = random(100, 625);
-        } else {
-            noFill();
-        }
-        fill('red');
-        rect(beatX, beatY, 25, 25); 
-    } else {
-        noFill();
-    }
-    
+        peakDetect.onPeak(drawSquares);
+    };
+
     // Draws lines for bass
     let lineX1, lineX2, lineY1, lineY2;
     let lineSize = 2;
@@ -113,4 +103,11 @@ function mousePressed () {
             myButtons[k].play();
         }
     }
+}
+function drawSquares () {
+    let beatX = random(500, 875);
+    let beatY = random(100, 625);
+    fill('red');
+    noStroke();
+    rect(beatX, beatY, 25, 25); 
 }
