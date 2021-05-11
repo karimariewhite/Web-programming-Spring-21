@@ -4,9 +4,9 @@ html {
 }
 
 body {
-    width: 90%;
+    width: 95%;
     margin: auto;
-
+    text-align: center;
 }
 
 #canvasContainer {
@@ -15,7 +15,7 @@ body {
     background-color: #fff;
     padding: 15px;
     min-width: 1005px;
-    min-height: 765px;
+    min-height: 700px;
 }
 
 h1 {
@@ -34,9 +34,13 @@ h2 {
     font-weight: 300; 
     font-style: italic;
     font-size: 1.5em;
+    margin-top: 5px;
 }
 
 button {
+    position: fixed;
+    top: 180px;
+    margin-left: -35px;
     padding: .35em 1.2em;
     border: .1em solid lightgray;
     border-radius: 2em;
@@ -45,7 +49,6 @@ button {
     font-weight: 300;
     color: black;
     text-align: center;
-    transition: all .2s;
 }
 
 
