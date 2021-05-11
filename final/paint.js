@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable indent */
 // variables for buttons and arrays
 let myButtons = [];
 let myCowbellButtons = [];
